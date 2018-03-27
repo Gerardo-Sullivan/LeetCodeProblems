@@ -44,6 +44,8 @@
   <ItemGroup>
     <Compile Include="MergeTwoSortedLists\ListNode.cs" />
     <Compile Include="MergeTwoSortedLists\Solution.cs" />
+    <Compile Include="MyCalenderThreeProblem\MyCalenderThree.cs" />
+    <Compile Include="MyCalenderThreeProblem\Solution.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
