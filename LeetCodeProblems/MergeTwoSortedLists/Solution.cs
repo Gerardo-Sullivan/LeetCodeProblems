@@ -57,32 +57,43 @@
         }
 
         /// <summary>
-        /// Add two numebers represented by linked lists.
+        /// Add two numbers represented by linked lists.
         /// Digits are stored in reverse order and each node contains a single digit.
         /// </summary>
         /// <param name="l1">Starting node of first number</param>
         /// <param name="l2">Starting node of second number</param>
         /// <returns>Starting node of result</returns>
         /// <remarks>Suggested solution from <a href="https://leetcode.com/problems/add-two-numbers/description/">LeetCode</a> </remarks>
-        public ListNode AddTwoNumbers2(ListNode l1, ListNode l2)
+        public ListNode AddTwoNumbersLeetCode(ListNode l1, ListNode l2)
         {
-            ListNode dummyHead = new ListNode(0);
-            ListNode p = l1, q = l2, curr = dummyHead;
-            int carry = 0;
+            ListNode dummyHead = new ListNode(0); // Dummy node not returned
+            ListNode current;
+            int carry = 0; //Note carray with be either 0 or 1
+
+            ListNode p = l1;
+            ListNode q = l2;
+            current = dummyHead; // pointer to dummyHead
+
             while (p != null || q != null)
             {
-                int x = (p != null) ? p.val : 0;
-                int y = (q != null) ? q.val : 0;
+                int x = p != null ? p.val : 0;
+                int y = q != null ? q.val : 0;
                 int sum = carry + x + y;
                 carry = sum / 10;
-                curr.next = new ListNode(sum % 10);
-                curr = curr.next;
-                if (p != null) p = p.next;
-                if (q != null) q = q.next;
+                current.next = new ListNode(sum % 10);
+                current = current.next;
+                if (p != null)
+                {
+                    p = p.next;
+                }
+                if (q != null)
+                {
+                    q = q.next;
+                }
             }
             if (carry > 0)
             {
-                curr.next = new ListNode(carry);
+                current.next = new ListNode(carry);
             }
             return dummyHead.next;
         }
@@ -100,7 +111,7 @@
             //l2.next = new ListNode(9);
             //l2.next.next = new ListNode(4);
 
-            ListNode ans = new Solution().AddTwoNumbers(l1, l2);
+            ListNode ans = new Solution().AddTwoNumbersLeetCode(l1, l2);
         }
     }
 }
